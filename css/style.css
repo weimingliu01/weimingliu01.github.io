@@ -29,6 +29,15 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* 确保英文内容默认显示，即使JavaScript失败 */
+.language-container[data-lang="en"] {
+    display: block;
+}
+
+.language-container[data-lang="zh"] {
+    display: none;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;

@@ -113,7 +113,7 @@
             </section>
         </div> -->
 
-        <div class="language-container" data-lang="en" style="display: none;">
+        <div class="language-container" data-lang="en">
             <section id="hero-en" class="hero-section">
                 <div class="container hero-content">
                     <img src="assets/profile.jpg" alt="Profile picture of" class="profile-pic">
@@ -233,6 +233,14 @@
             <p>&copy; 2025 Weiming Liu. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- 如果JavaScript被禁用，确保英文内容显示 -->
+    <noscript>
+        <style>
+            .language-container[data-lang="en"] { display: block !important; }
+            .language-container[data-lang="zh"] { display: none !important; }
+        </style>
+    </noscript>
 
     <script src="js/script.js"></script>
 </body>

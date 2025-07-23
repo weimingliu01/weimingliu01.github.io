@@ -5,6 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const zhContainer = document.querySelector('[data-lang="zh"]');
     const enContainer = document.querySelector('[data-lang="en"]');
 
+    // 错误处理：如果找不到必要元素，至少确保英文内容显示
+    if (!langSwitcher || !nav || !enContainer) {
+        console.warn('Some elements not found, using fallback');
+        if (enContainer) {
+            enContainer.style.display = 'block';
+        }
+        return;
+    }
+
     const navLinks = {
         zh: [
             { text: '关于我', href: '#about-zh' },
