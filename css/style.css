@@ -39,7 +39,7 @@ body {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1000px; /* 恢复原来的宽度 */
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -75,12 +75,24 @@ p {
     margin-bottom: 1rem;
 }
 
+/* 增加About部分正文字体大小 */
+#about-en p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
 .content-section {
     padding: 100px 0;
 }
 
 .text-center {
     text-align: center;
+}
+
+/* 专门针对About部分的间距优化 */
+#about-en .container {
+    max-width: 800px; /* 只让About部分的间距变小 */
+    padding: 0 40px;
 }
 
 /* Navbar */
@@ -297,7 +309,7 @@ p {
 }
 
 .timeline-details h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* 从1.5rem减小到1.3rem */
     margin-bottom: 8px;
 }
 
@@ -429,11 +441,41 @@ p {
     border-top: 1px solid var(--border-color);
 }
 
+/* 桌面端特别优化 */
+@media (min-width: 769px) {
+    /* 只优化About部分的间距和字体 */
+    #about-en .container {
+        max-width: 750px; /* 桌面端About部分更窄 */
+        padding: 0 50px;
+    }
+    
+    /* About部分字体更大 */
+    #about-en p {
+        font-size: 1.15rem;
+        line-height: 1.9;
+    }
+    
+    /* Education标题适中 */
+    .timeline-details h3 {
+        font-size: 1.25rem;
+    }
+    
+    /* Timeline整体宽度保持原样 */
+    .timeline {
+        max-width: 950px;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* 容器内边距调整 */
+    /* 容器内边距调整 - 增加左右边距 */
     .container {
-        padding: 0 15px;
+        padding: 0 25px;
+    }
+    
+    /* 特别针对内容区域增加更多边距 */
+    .content-section .container {
+        padding: 0 30px;
     }
     
     /* 标题字体大小调整 */
@@ -463,30 +505,53 @@ p {
     
     /* 导航栏移动端优化 */
     .navbar-content {
-        flex-wrap: wrap;
+        flex-direction: column;
         height: auto;
-        padding: 10px 0;
+        padding: 15px 0;
+        gap: 15px;
     }
     
     .logo {
         font-size: 1.5rem;
+        order: 1;
+    }
+    
+    .lang-btn {
+        order: 2;
+        align-self: flex-end;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    #main-nav {
+        order: 3;
+        width: 100%;
     }
     
     #main-nav ul {
         flex-wrap: wrap;
         justify-content: center;
-        margin: 10px 0;
+        margin: 0;
+        padding: 0;
+        gap: 8px;
     }
     
     #main-nav li {
-        margin: 5px 10px;
+        margin: 0;
     }
     
     #main-nav a {
-        font-size: 14px;
+        font-size: 13px;
         padding: 8px 12px;
-        border-radius: 4px;
-        background: rgba(137, 101, 10, 0.1);
+        border-radius: 6px;
+        background: rgba(137, 101, 10, 0.15);
+        border: 1px solid rgba(137, 101, 10, 0.3);
+        display: block;
+        text-align: center;
+        min-width: 80px;
     }
     
     /* Hero Section 移动端优化 */
@@ -593,22 +658,41 @@ p {
       flex-direction: row;
       text-align: left!important;
   }
+ 
+ /* 移动端所有圆圈都应该在同一位置（时间线中心） */
  .timeline-item::after {
-      left: 22.5px;
+      left: 24px; /* 时间线中心对齐 */
+      right: auto; /* 重置桌面版的right属性 */
+      width: 15px;
+      height: 15px;
   }
+  
+ /* 重写移动端的圆圈位置规则，覆盖桌面版的奇偶数规则 */
+ .timeline-item:nth-child(odd)::after,
+ .timeline-item:nth-child(even)::after {
+      left: 24px;
+      right: auto;
+ }
+ 
  .timeline-logo {
       width: 50px;
       height: 50px;
   }
   
   .timeline-details h3 {
-      font-size: 1.1rem;
+      font-size: 1rem !important;
       margin-bottom: 5px;
+      line-height: 1.3;
   }
   
   .timeline-details p {
-      font-size: 13px;
+      font-size: 12px !important;
       margin-bottom: 3px;
+      line-height: 1.4;
+  }
+  
+  .timeline-details em {
+      font-size: 11px !important;
   }
   
   /* Footer 移动端优化 */
@@ -628,7 +712,11 @@ p {
 /* 小屏幕设备优化 (iPhone SE 等) */
 @media (max-width: 480px) {
     .container {
-        padding: 0 10px;
+        padding: 0 20px;
+    }
+    
+    .content-section .container {
+        padding: 0 25px;
     }
     
     .hero-text h1 {
@@ -650,8 +738,9 @@ p {
     }
     
     #main-nav a {
-        font-size: 13px;
+        font-size: 12px;
         padding: 6px 10px;
+        min-width: 70px;
     }
     
     .profile-pic {
@@ -665,5 +754,14 @@ p {
     
     .content-section {
         padding: 40px 0;
+    }
+    
+    /* 进一步优化Education部分 */
+    .timeline-details h3 {
+        font-size: 0.9rem !important;
+    }
+    
+    .timeline-details p {
+        font-size: 11px !important;
     }
 }
