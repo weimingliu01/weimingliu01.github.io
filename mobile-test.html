@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weiming Liu | PKU - Mobile Test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* 临时样式用于显示当前屏幕尺寸 */
+        .screen-info {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <div class="screen-info" id="screen-info"></div>
+
+    <header class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">Weiming Liu</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#about-en">About</a></li>
+                    <li><a href="#education-en">Education</a></li>
+                    <li><a href="#honors-en">Honors</a></li>
+                    <li><a href="#publications-en">Publications</a></li>
+                    <li><a href="#contact-en">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="lang-switcher" class="lang-btn">EN</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="language-container" data-lang="en">
+            <section id="hero-en" class="hero-section">
+                <div class="container hero-content">
+                    <img src="assets/profile.jpg" alt="Profile picture of" class="profile-pic">
+                    <div class="hero-text">
+                        <h1>Weiming Liu</h1>
+                        <p class="subtitle">Doctoral Candidate in Automatic Control</p>
+                        <p class="mission">School of Advanced Manufacturing and Robotics, Peking University</p>
+                        <p class="mission">Chengfu Road, Haidian District, Beijing, 100871, China</p>
+                        <p class="mission2">E-mail: <a href="mailto:wml@pku.edu.cn">wml@pku.edu.cn</a></p>
+                        <div class="social-links">
+                            <a href="https://github.com/weimingliu01" target="_blank" class="btn">GitHub</a>
+                            <a href="https://scholar.google.com/citations?hl=en&user=XkF84MkAAAAJ" target="_blank" class="btn">Google Scholar</a>
+                            <a href="https://orcid.org/0009-0000-1185-208X" target="_blank" class="btn">ORCID</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about-en" class="content-section">
+                <div class="container">
+                    <h2>About Me</h2>
+                    <p>Welcome to my personal website! This is a mobile-optimized test version showing improved responsive design for mobile devices.</p>
+                </div>
+            </section>
+
+            <section id="honors-en" class="content-section">
+                <div class="container">
+                    <h2>Awards & Honors</h2>
+                    <div class="card-grid">
+                        <div class="card">2024 | Excellent Research Award of Peking University</div>
+                        <div class="card">2024 | The Third Prize of Peking University Scholarship</div>
+                        <div class="card">2022 | The Third Prize of Peking University Scholarship</div>
+                        <div class="card">2022 | Excellent Student Leader of Peking University</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact-en" class="content-section">
+                <div class="container text-center">
+                    <h2>Contact</h2>
+                    <p>Feel free to reach out for collaborations or any inquiries.</p>
+                    <a href="mailto:wml@pku.edu.cn" class="email-link">wml@pku.edu.cn</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Weiming Liu. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 显示当前屏幕尺寸信息
+        function updateScreenInfo() {
+            const screenInfo = document.getElementById('screen-info');
+            screenInfo.textContent = `${window.innerWidth}x${window.innerHeight}`;
+        }
+        
+        updateScreenInfo();
+        window.addEventListener('resize', updateScreenInfo);
+    </script>
+</body>
+</html>

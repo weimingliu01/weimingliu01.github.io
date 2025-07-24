@@ -431,18 +431,155 @@ p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
- .hero-content {
+    /* 容器内边距调整 */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* 标题字体大小调整 */
+    h1 {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 2rem !important;
+        margin-bottom: 2.5rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    /* 正文字体大小调整 */
+    body {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    /* 导航栏移动端优化 */
+    .navbar-content {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 0;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    #main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px 0;
+    }
+    
+    #main-nav li {
+        margin: 5px 10px;
+    }
+    
+    #main-nav a {
+        font-size: 14px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        background: rgba(137, 101, 10, 0.1);
+    }
+    
+    /* Hero Section 移动端优化 */
+    .hero-content {
         flex-direction: column;
         text-align: center;
+        gap: 30px;
+    }
+    
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .mission, .mission2 {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    /* Social Links 移动端特别优化 */
+    .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        margin-top: 20px;
+    }
+    
+    .social-links .btn {
+        display: block;
+        width: 200px;
+        text-align: center;
+        margin-right: 0;
+        padding: 14px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 8px;
+        background-color: rgba(137, 101, 10, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .social-links .btn:hover {
+        background-color: rgba(137, 101, 10, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(137, 101, 10, 0.4);
+    }
+    
+    /* Content sections 移动端优化 */
+    .content-section {
+        padding: 60px 0;
     }
     
     /* Card Grid - 在移动端改为单列显示 */
     .card-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
     
-  /* ==================== CSS MODIFICATION START ==================== */
-  /* 这是更新后的响应式Timeline样式 */
+    .card, .skill-category {
+        padding: 20px;
+        font-size: 14px;
+    }
+    
+    /* Publications 移动端优化 */
+    .publication-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .publication-item {
+        padding: 15px;
+        padding-left: 45px;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    
+    .publication-item::before {
+        width: 20px;
+        height: 20px;
+        font-size: 0.8rem;
+        left: 15px;
+    }
+    
+  /* Timeline 移动端优化 */
  .timeline::after {
       left: 30px;
   }
@@ -453,15 +590,80 @@ p {
   }
  .timeline-item:nth-child(odd),.timeline-item:nth-child(even) {
       left: 0;
-      flex-direction: row; /* 在移动端，校徽始终在左侧 */
+      flex-direction: row;
       text-align: left!important;
   }
  .timeline-item::after {
       left: 22.5px;
   }
  .timeline-logo {
-      width: 60px; /* 在移动端适当缩小校徽 */
-      height: 60px;
+      width: 50px;
+      height: 50px;
   }
-  /* ==================== CSS MODIFICATION END ==================== */
+  
+  .timeline-details h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+  }
+  
+  .timeline-details p {
+      font-size: 13px;
+      margin-bottom: 3px;
+  }
+  
+  /* Footer 移动端优化 */
+  .footer {
+      padding: 20px 0;
+      font-size: 13px;
+  }
+  
+  /* Contact section 移动端优化 */
+  .email-link {
+      font-size: 1.1rem;
+      padding: 12px 20px;
+      margin-top: 15px;
+  }
+}
+
+/* 小屏幕设备优化 (iPhone SE 等) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.6rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .mission, .mission2 {
+        font-size: 13px;
+    }
+    
+    .social-links .btn {
+        width: 180px;
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+    
+    #main-nav a {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+    
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+    
+    h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .content-section {
+        padding: 40px 0;
+    }
 }
