@@ -6,12 +6,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const enContainer = document.querySelector('[data-lang="en"]');
 
     // 错误处理：如果找不到必要元素，至少确保英文内容显示
-    if (!langSwitcher || !nav || !enContainer) {
-        console.warn('Some elements not found, using fallback');
+    if (!langSwitcher || !nav) {
+        console.warn('Critical elements not found, using fallback');
+        // 即使关键元素不存在，也要确保英文内容显示
         if (enContainer) {
             enContainer.style.display = 'block';
         }
         return;
+    }
+
+    // 如果英文容器不存在，显示警告但继续执行
+    if (!enContainer) {
+        console.warn('English container not found');
     }
 
     const navLinks = {
@@ -46,14 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function switchLanguage(lang) {
-        if (lang === 'zh') {
+        if (lang === 'zh' && zhContainer) {
             zhContainer.style.display = 'block';
-            enContainer.style.display = 'none';
+            if (enContainer) enContainer.style.display = 'none';
             langSwitcher.textContent = 'EN';
             document.documentElement.lang = 'zh-CN';
         } else {
-            zhContainer.style.display = 'none';
-            enContainer.style.display = 'block';
+            if (zhContainer) zhContainer.style.display = 'none';
+            if (enContainer) enContainer.style.display = 'block';
             langSwitcher.textContent = '中文';
             document.documentElement.lang = 'en';
         }
